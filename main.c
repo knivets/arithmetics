@@ -31,11 +31,8 @@ int main(int argc, char* argv[])
     k_read_file_to_buffer(file, buff, length);
     struct k_token *tokens = malloc(length * sizeof *tokens);
     int t_length = k_tokenize(buff, length, tokens);
-    k_parse(tokens, t_length);
-    for(int i = 0; i < t_length; i++)
-    {
-      puts(tokens[i].value);
-    }
+    int result = k_parse(tokens, t_length);
+    printf("%d\n", result);
     free(tokens);
     free(buff);
     fclose(file);

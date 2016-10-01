@@ -1,6 +1,7 @@
 #include <stdio.h>
 #define MAX_TOKEN_SIZE 100
 enum k_token_type {
+  BAD,
   INTEGER,
   LPAREN,
   RPAREN,
