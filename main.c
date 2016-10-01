@@ -13,13 +13,15 @@ int k_get_file_size(FILE *file)
   }
   return -1;
 }
-char *k_read_file_to_buffer(FILE *file, char *buff, size_t length)
+int k_read_file_to_buffer(FILE *file, char *buff, size_t length)
 {
   char c;
-  for(int i = 0; (c = fgetc(file)) != EOF; i++)
+  int i;
+  for(i = 1; (c = fgetc(file)) != EOF; i++)
   {
     buff[i] = c;
   }
+  return i;
 }
 int main(int argc, char* argv[])
 {
